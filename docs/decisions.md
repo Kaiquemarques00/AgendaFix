@@ -106,3 +106,16 @@ Nenhuma tabela com dados de usuário deve ficar sem RLS.
 
 ### Risco mitigado
 Evitar que um usuário acesse dados de outro negócio.
+
+---
+
+## ADR-007 — Onboarding obrigatório do negócio
+
+### Decisão
+Todo usuário autenticado deve ter um registro em businesses antes de usar o dashboard.
+
+### Motivo
+As ordens de serviço dependem de business_id.
+
+### Regra
+Se o usuário não tiver business, redirecionar para onboarding.

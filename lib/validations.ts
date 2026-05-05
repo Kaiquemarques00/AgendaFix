@@ -30,6 +30,17 @@ export const updateOrderStatusSchema = z.object({
 
 export const publicTokenSchema = trimmedString
 
+export const loginSchema = z.object({
+  email: z.string().trim().email({ message: 'E-mail inválido.' }),
+  password: z.string().min(6, { message: 'Senha deve ter ao menos 6 caracteres.' }),
+})
+
+export const createBusinessSchema = z.object({
+  name: trimmedString.min(2, { message: 'Nome deve ter ao menos 2 caracteres.' }),
+})
+
 export type OrderStatusInput = z.infer<typeof orderStatusSchema>
 export type CreateOrderInput = z.infer<typeof createOrderSchema>
 export type UpdateOrderStatusInput = z.infer<typeof updateOrderStatusSchema>
+export type LoginInput = z.infer<typeof loginSchema>
+export type CreateBusinessInput = z.infer<typeof createBusinessSchema>

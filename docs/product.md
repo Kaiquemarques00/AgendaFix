@@ -54,6 +54,7 @@ Uma plataforma que permite:
 ### Inclui
 
 - autenticação de usuário (login)
+- onboarding inicial do negócio
 - criação de ordem de serviço
 - listagem de ordens
 - visualização de detalhes
