@@ -3,7 +3,7 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 export type Business = {
   id: string
   name: string
-  owner_user_id: string
+  owner_id: string
   created_at: string
 }
 
@@ -13,8 +13,8 @@ export async function getBusinessForUser(
 ): Promise<Business | null> {
   const { data, error } = await supabase
     .from('businesses')
-    .select('id, name, owner_user_id, created_at')
-    .eq('owner_user_id', userId)
+    .select('id, name, owner_id, created_at')
+    .eq('owner_id', userId)
     .maybeSingle()
 
   if (error) throw new Error(error.message)
@@ -28,8 +28,8 @@ export async function createBusinessForUser(
 ): Promise<Business> {
   const { data, error } = await supabase
     .from('businesses')
-    .insert({ name, owner_user_id: userId })
-    .select('id, name, owner_user_id, created_at')
+    .insert({ name, owner_id: userId })
+    .select('id, name, owner_id, created_at')
     .single()
 
   if (error) throw new Error(error.message)

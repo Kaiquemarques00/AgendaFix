@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { getSupabaseProxyClient } from '@/lib/supabase'
 
-const PUBLIC_ROUTES = ['/login']
+const PUBLIC_ROUTES = ['/login', '/register']
 const AUTH_REQUIRED_ROUTES = ['/dashboard', '/onboarding']
 
 export async function proxy(request: NextRequest) {

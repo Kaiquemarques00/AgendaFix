@@ -1,18 +1,21 @@
 'use client'
 
 import { useActionState } from 'react'
-import { loginAction } from '@/app/actions/auth'
 import Link from 'next/link'
+import { registerAction } from '@/app/actions/auth'
 
-export default function LoginPage() {
-  const [state, action, pending] = useActionState(loginAction, undefined)
+export default function RegisterPage() {
+  const [state, action, pending] = useActionState(registerAction, undefined)
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 px-4">
       <div className="w-full max-w-sm rounded-xl bg-white p-8 shadow-sm ring-1 ring-zinc-200">
-        <h1 className="mb-6 text-xl font-semibold text-zinc-900">
-          Entrar no AgendaFix
+        <h1 className="mb-2 text-xl font-semibold text-zinc-900">
+          Criar conta no AgendaFix
         </h1>
+        <p className="mb-6 text-sm text-zinc-500">
+          Use seu e-mail e uma senha para começar.
+        </p>
 
         <form action={action} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
@@ -31,40 +34,42 @@ export default function LoginPage() {
           </div>
 
           <div className="flex flex-col gap-1">
-            <label htmlFor="password" className="text-sm font-medium text-zinc-700">
+            <label
+              htmlFor="password"
+              className="text-sm font-medium text-zinc-700"
+            >
               Senha
             </label>
             <input
               id="password"
               name="password"
               type="password"
-              autoComplete="current-password"
+              autoComplete="new-password"
               required
               className="rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900"
               placeholder="••••••••"
             />
           </div>
 
-          {state?.error && (
-            <p className="text-sm text-red-600">{state.error}</p>
-          )}
+          {state?.error && <p className="text-sm text-red-600">{state.error}</p>}
 
           <button
             type="submit"
             disabled={pending}
             className="mt-2 rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-700 disabled:opacity-50"
           >
-            {pending ? 'Entrando...' : 'Entrar'}
+            {pending ? 'Criando...' : 'Criar conta'}
           </button>
         </form>
-        
+
         <p className="mt-6 text-sm text-zinc-500">
-          Não tem uma conta?{' '}
-          <Link href="/register" className="font-medium text-zinc-900">
-            Criar conta
+          Já tem conta?{' '}
+          <Link href="/login" className="font-medium text-zinc-900">
+            Entrar
           </Link>
         </p>
       </div>
     </div>
   )
 }
+
