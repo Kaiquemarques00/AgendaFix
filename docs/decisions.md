@@ -90,3 +90,19 @@ Toda lógica de negócio deve ser implementada em arquivos de service (/server).
 
 ### Regra
 Componentes não devem acessar diretamente o banco
+
+---
+
+## ADR-006 — RLS obrigatório no Supabase
+
+### Decisão
+Todas as tabelas principais devem usar Row Level Security.
+
+### Motivo
+A aplicação usa chave pública no frontend, então a proteção real dos dados precisa ser feita no banco.
+
+### Regra
+Nenhuma tabela com dados de usuário deve ficar sem RLS.
+
+### Risco mitigado
+Evitar que um usuário acesse dados de outro negócio.

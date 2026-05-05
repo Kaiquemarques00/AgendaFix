@@ -14,7 +14,6 @@
 
 ## Estrutura de pastas
 
-```txt
 /app
   /(auth)
   /dashboard
