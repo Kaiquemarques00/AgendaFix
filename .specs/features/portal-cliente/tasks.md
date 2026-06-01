@@ -3,7 +3,7 @@
 **Design**: `.specs/features/portal-cliente/design.md`
 **Status**: Draft
 
-**Depends on**: infra-base (realtime), ordem-servico (public API, lookup)
+**Depends on**: infra-base (realtime) ✅, ordem-servico (public API, lookup) ✅
 
 ---
 

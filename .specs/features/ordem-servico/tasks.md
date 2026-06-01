@@ -223,3 +223,14 @@ Phase 3:
 | T1-T2 | Pure logic | unit | ✅ OK |
 | T3-T6 | Server actions/API | integration | ✅ OK |
 | T7 | Action + util | unit + integration | ✅ OK |
+
+---
+
+## Verification Log
+
+| Data | O quê | Resultado |
+| ---- | ----- | --------- |
+| 2026-06-01 | `npm test` (74 testes) | ✅ |
+| 2026-06-01 | `GET /api/public/orders/{token}` (curl, seed OS-2026-0001) | ✅ JSON sem `workshop_id` |
+| 2026-06-01 | Realtime após mudança de status (manual) | ✅ |
+| 2026-06-01 | Transição de status + histórico (manual) | ✅ |

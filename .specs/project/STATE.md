@@ -1,7 +1,7 @@
 # State
 
 **Last Updated:** 2026-06-01
-**Current Work:** ordem-servico backend MVP concluído — próximo: painel-assistencia ou portal-cliente (UI)
+**Current Work:** ordem-servico backend validado (testes auto + manual) — próximo: painel-assistencia ou portal-cliente (UI)
 
 ---
 
@@ -67,7 +67,11 @@ _Nenhum blocker ativo no momento._
 
 ## Lessons Learned
 
-_Nenhuma lição registrada ainda — projeto greenfield._
+### LL-001: Verificação manual ordem-servico (2026-06-01)
+
+- API pública retorna `order` + `history` + `notes` sem `workshop_id` (curl com token do seed OK).
+- Realtime e transição de status validados manualmente em dev.
+- Lookup e rate limit cobertos por testes automatizados; UI de `/consultar` ainda não existe.
 
 ---
 
@@ -106,7 +110,8 @@ _Nenhuma lição registrada ainda — projeto greenfield._
 - [x] Implementar ordem-servico Phase 1 (T1–T2: status machine + Zod schemas)
 - [x] Implementar ordem-servico Phase 2 (T3–T5: Server Actions + trigger histórico)
 - [x] Implementar ordem-servico Phase 3 (T6–T7: API pública + lookup)
-- [ ] Aplicar migration `004_status_history_trigger.sql` no Supabase Cloud (`supabase db push`)
+- [x] Validar ordem-servico manualmente (API pública, Realtime, fluxo de status)
+- [x] Aplicar migrations no Supabase Cloud (incl. `004_status_history_trigger.sql`)
 
 ---
 

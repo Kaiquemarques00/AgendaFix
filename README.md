@@ -45,6 +45,22 @@ npm run dev
 
 Acesse http://localhost:3000 → login → `/dashboard`.
 
+## Testar backend de ordens (sem UI)
+
+Com `npm run dev` e seed aplicado:
+
+```bash
+# Testes automatizados
+npm test
+
+# API pública (token da OS-2026-0001 do seed)
+curl http://localhost:3000/api/public/orders/c0000000-0000-4000-8000-000000000001
+```
+
+Lookup (`lookupOrder`): coberto por testes em `src/lib/actions/public-lookup.test.ts` — UI em `/consultar` virá na feature portal-cliente.
+
+Detalhes: `.specs/features/ordem-servico/tasks.md` (Verification Log).
+
 ## Scripts
 
 | Comando        | Descrição                          |

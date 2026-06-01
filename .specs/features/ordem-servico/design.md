@@ -1,7 +1,7 @@
 # Gestão de Ordens de Serviço — Design
 
 **Spec**: `.specs/features/ordem-servico/spec.md`
-**Status**: Draft
+**Status**: Implemented (backend MVP — ver `tasks.md`)
 
 ---
 
@@ -77,7 +77,7 @@ sequenceDiagram
 ### Public Order API
 
 - **Purpose**: Consulta pública de ordem via token (sem auth)
-- **Location**: `src/app/api/public/orders/[token]/route.ts`
+- **Location**: `src/app/api/public/orders/[token]/route.ts`, `src/lib/public/order-details.ts`, `src/lib/supabase/public-server.ts`
 - **Interfaces**:
   - `GET /api/public/orders/[token]` → `{ order, history, notes }`
 - **Dependencies**: Supabase anon client, RLS policies anônimas
@@ -86,7 +86,7 @@ sequenceDiagram
 ### Order Lookup (Consulta por OS)
 
 - **Purpose**: Buscar ordem por número + telefone
-- **Location**: `src/lib/actions/public-lookup.ts`
+- **Location**: `src/lib/actions/public-lookup.ts`, `src/lib/utils/phone.ts`, `src/lib/utils/lookup-rate-limit.ts`
 - **Interfaces**:
   - `lookupOrder(orderNumber: string, phoneLast4: string): Promise<ActionResult<{ token: string }>>`
 - **Dependencies**: Supabase, normalização de telefone

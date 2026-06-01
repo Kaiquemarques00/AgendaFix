@@ -1,7 +1,7 @@
 # Roadmap
 
 **Current Milestone:** MVP — Acompanhamento de Ordens de Serviço
-**Status:** Planning
+**Status:** In Progress (backend concluído; UI painel + portal pendentes)
 
 ---
 
@@ -12,26 +12,29 @@
 
 ### Features
 
-**Infraestrutura Base** — PLANNED
+**Infraestrutura Base** — ✅ DONE
 
 - Setup do projeto (Next.js + Supabase)
 - Schema do banco de dados (assistências, ordens, histórico)
 - Autenticação do painel da assistência
 - Configuração de Realtime para portal do cliente
 
-Spec: `.specs/features/infra-base/spec.md`
+Spec: `.specs/features/infra-base/spec.md` · Tasks: `infra-base/tasks.md`
 
 ---
 
-**Gestão de Ordens de Serviço** — PLANNED
+**Gestão de Ordens de Serviço** — ✅ DONE (backend)
 
-- CRUD de ordens de serviço
-- Máquina de estados do fluxo de status
-- Registro automático de histórico a cada mudança
-- Observações técnicas vinculadas à ordem
-- Geração de link público de acompanhamento
+- Server Actions: criar ordem, atualizar status, adicionar nota
+- Máquina de estados + validação Zod
+- Histórico (insert inicial + trigger em updates)
+- API pública `GET /api/public/orders/[token]`
+- Lookup por número da OS + últimos 4 dígitos do telefone
+- Testes: 74 unit/integration (Vitest); verificação manual API + Realtime (2026-06-01)
 
-Spec: `.specs/features/ordem-servico/spec.md`
+Spec: `.specs/features/ordem-servico/spec.md` · Tasks: `ordem-servico/tasks.md`
+
+_Nota: telas do painel que consomem as actions e rota `/acompanhar` ficam nas features seguintes._
 
 ---
 

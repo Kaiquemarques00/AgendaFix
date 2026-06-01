@@ -3,7 +3,7 @@
 **Design**: `.specs/features/painel-assistencia/design.md`
 **Status**: Draft
 
-**Depends on**: infra-base (auth, layout), ordem-servico (actions)
+**Depends on**: infra-base (auth, layout) ✅, ordem-servico (actions) ✅
 
 ---
 

@@ -26,6 +26,8 @@ Execute na ordem, no dashboard Supabase → SQL:
 
 1. `migrations/001_initial_schema.sql`
 2. `migrations/002_rls_policies.sql`
+3. `migrations/003_enable_realtime.sql`
+4. `migrations/004_status_history_trigger.sql`
 
 ## Auth (painel)
 

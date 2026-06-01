@@ -6,10 +6,10 @@ O núcleo do Agenda Fix é o ciclo de vida de uma ordem de serviço: registro, t
 
 ## Goals
 
-- [ ] Assistência consegue criar ordens com todos os campos do MVP em menos de 2 minutos
-- [ ] Cada mudança de status gera registro automático no histórico com timestamp
-- [ ] Link público único gerado por ordem permite acompanhamento sem login
-- [ ] Transições de status respeitam regras de negócio definidas
+- [ ] Assistência consegue criar ordens com todos os campos do MVP em menos de 2 minutos _(backend pronto; UI painel pendente)_
+- [x] Cada mudança de status gera registro automático no histórico com timestamp _(trigger + action; validado)_
+- [x] Link público único gerado por ordem permite acompanhamento sem login _(API `GET /api/public/orders/[token]`; página `/acompanhar` pendente)_
+- [x] Transições de status respeitam regras de negócio definidas _(status machine + `updateOrderStatus`)_
 
 ## Out of Scope
 
@@ -170,8 +170,21 @@ Recebido → Em análise → Em reparo → Aguardando peça → Pronto para reti
 
 ---
 
+## Implementation Status (2026-06-01)
+
+| Camada | Status | Notas |
+| ------ | ------ | ----- |
+| Domínio (status machine, Zod) | ✅ | T1–T2 |
+| Server Actions (CRUD ordem) | ✅ | T3–T5 |
+| API pública + lookup | ✅ | T6–T7 |
+| Testes automatizados | ✅ | `npm test` (74 testes) |
+| Verificação manual | ✅ | API curl, Realtime, status |
+| UI painel / portal | ⏳ | Features `painel-assistencia`, `portal-cliente` |
+
+---
+
 ## Success Criteria
 
-- [ ] Fluxo completo Recebido → Entregue executável em < 5 minutos no painel
-- [ ] 100% das transições de status geram entrada no histórico
-- [ ] Zero ordens acessíveis cross-tenant em testes de isolamento
+- [ ] Fluxo completo Recebido → Entregue executável em < 5 minutos no painel _(depende UI)_
+- [x] 100% das transições de status geram entrada no histórico _(backend + trigger)_
+- [ ] Zero ordens acessíveis cross-tenant em testes de isolamento _(RLS documentado em `supabase/RLS_MANUAL_TEST.md`; automatizar depois)_
