@@ -1,7 +1,7 @@
 # Gestão de Ordens de Serviço — Tasks
 
 **Design**: `.specs/features/ordem-servico/design.md`
-**Status**: Draft
+**Status**: In Progress (Phase 1 complete)
 
 ---
 
@@ -39,9 +39,9 @@ T5 ──┬→ T6 [P]
 **Requirement**: OS-04, OS-05
 
 **Done when**:
-- [ ] Todas transições da spec cobertas por testes
-- [ ] Transições inválidas retornam false
-- [ ] Labels pt-BR exportados
+- [x] Todas transições da spec cobertas por testes
+- [x] Transições inválidas retornam false
+- [x] Labels pt-BR exportados
 
 **Tests**: unit
 **Gate**: quick (`npm test status-machine`)
@@ -59,9 +59,9 @@ T5 ──┬→ T6 [P]
 **Requirement**: OS-01, OS-07
 
 **Done when**:
-- [ ] Schemas validam campos obrigatórios e limites
-- [ ] Mensagens de erro em português
-- [ ] Testes unitários de casos válidos e inválidos
+- [x] Schemas validam campos obrigatórios e limites
+- [x] Mensagens de erro em português
+- [x] Testes unitários de casos válidos e inválidos
 
 **Tests**: unit
 **Gate**: quick

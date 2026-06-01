@@ -1,7 +1,7 @@
 # State
 
 **Last Updated:** 2026-06-01
-**Current Work:** infra-base concluída — próxima feature: ordem-servico ou painel-assistencia
+**Current Work:** ordem-servico Phase 1 (T1–T2) concluída — próximo: Phase 2 Server Actions (T3–T5)
 
 ---
 
@@ -103,6 +103,7 @@ _Nenhuma lição registrada ainda — projeto greenfield._
 - [x] Implementar infra-base Phase 2 (T4–T6: schema, RLS, auth)
 - [x] Aplicar migrations no Supabase Cloud (`supabase link` + `db push`)
 - [x] Implementar infra-base Phase 3 (T7–T8: Realtime + seed)
+- [x] Implementar ordem-servico Phase 1 (T1–T2: status machine + Zod schemas)
 
 ---
 
