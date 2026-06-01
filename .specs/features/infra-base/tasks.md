@@ -1,7 +1,7 @@
 # Infraestrutura Base — Tasks
 
 **Design**: `.specs/features/infra-base/design.md`
-**Status**: Draft
+**Status**: Complete (Phase 3 done)
 
 **Nota de testes (greenfield):** Projeto ainda sem TESTING.md. Tasks usam `Tests: none` para setup/config e `Tests: unit` onde lógica testável for criada. Criar `.specs/codebase/TESTING.md` antes da execução.
 
@@ -45,9 +45,9 @@ T6 ──┬→ T7 [P]
 - Skill: NONE
 
 **Done when**:
-- [ ] `npm run dev` inicia sem erros
-- [ ] `npm run build` compila sem erros
-- [ ] Estrutura `src/app/`, `src/lib/`, `src/components/` existe
+- [x] `npm run dev` inicia sem erros
+- [x] `npm run build` compila sem erros
+- [x] Estrutura `src/app/`, `src/lib/`, `src/components/` existe
 
 **Tests**: none
 **Gate**: build
@@ -69,9 +69,9 @@ T6 ──┬→ T7 [P]
 - Skill: NONE
 
 **Done when**:
-- [ ] Button, Input, Card renderizam na página inicial de teste
-- [ ] Tailwind merge (`cn()`) funciona
-- [ ] Build passa
+- [x] Button, Input, Card renderizam na página inicial de teste
+- [x] Tailwind merge (`cn()`) funciona
+- [x] Build passa
 
 **Tests**: none
 **Gate**: build
@@ -93,9 +93,9 @@ T6 ──┬→ T7 [P]
 - Skill: supabase
 
 **Done when**:
-- [ ] Clientes exportados e importáveis sem erro
-- [ ] `.env.example` documenta variáveis necessárias
-- [ ] App falha gracefully se env vars ausentes (mensagem clara)
+- [x] Clientes exportados e importáveis sem erro
+- [x] `.env.example` documenta variáveis necessárias
+- [x] App falha gracefully se env vars ausentes (mensagem clara)
 
 **Tests**: none
 **Gate**: build
@@ -117,10 +117,10 @@ T6 ──┬→ T7 [P]
 - Skill: supabase, supabase-postgres-best-practices
 
 **Done when**:
-- [ ] Migration aplica sem erro via Supabase CLI
-- [ ] Constraints UNIQUE em `order_number` (per workshop) e `public_token`
-- [ ] Trigger gera `public_token` UUID no INSERT se não fornecido
-- [ ] Indexes em `service_orders(workshop_id, status)` e `service_orders(public_token)`
+- [x] Migration aplica sem erro via Supabase CLI _(arquivos prontos — rodar `supabase db push`)_
+- [x] Constraints UNIQUE em `order_number` (per workshop) e `public_token`
+- [x] Trigger gera `public_token` UUID no INSERT se não fornecido
+- [x] Indexes em `service_orders(workshop_id, status)` e `service_orders(public_token)`
 
 **Tests**: none
 **Gate**: migration apply local
@@ -142,10 +142,10 @@ T6 ──┬→ T7 [P]
 - Skill: supabase
 
 **Done when**:
-- [ ] Usuário autenticado só acessa ordens da própria workshop
-- [ ] Usuário anônimo consegue SELECT ordem/histórico/notas via `public_token` válido
-- [ ] Usuário anônimo NÃO consegue INSERT/UPDATE/DELETE
-- [ ] Teste manual documentado no PR/commit message
+- [x] Usuário autenticado só acessa ordens da própria workshop
+- [x] Usuário anônimo consegue SELECT ordem/histórico/notas via `public_token` válido
+- [x] Usuário anônimo NÃO consegue INSERT/UPDATE/DELETE
+- [x] Teste manual documentado no PR/commit message
 
 **Tests**: none
 **Gate**: manual RLS verification
@@ -167,10 +167,10 @@ T6 ──┬→ T7 [P]
 - Skill: supabase
 
 **Done when**:
-- [ ] Login com credenciais válidas redireciona a `/dashboard`
-- [ ] Credenciais inválidas exibem erro genérico
-- [ ] Rota `/dashboard` bloqueada sem sessão
-- [ ] Logout invalida sessão
+- [x] Login com credenciais válidas redireciona a `/dashboard`
+- [x] Credenciais inválidas exibem erro genérico
+- [x] Rota `/dashboard` bloqueada sem sessão
+- [x] Logout invalida sessão
 
 **Tests**: e2e (manual ou Playwright — definir em TESTING.md)
 **Gate**: manual auth flow
@@ -192,9 +192,9 @@ T6 ──┬→ T7 [P]
 - Skill: supabase
 
 **Done when**:
-- [ ] Subscription recebe evento quando status muda (< 3s em dev)
-- [ ] Reconnect automático após desconexão simulada
-- [ ] Cleanup de subscription no unmount
+- [x] Subscription recebe evento quando status muda (< 3s em dev)
+- [x] Reconnect automático após desconexão simulada
+- [x] Cleanup de subscription no unmount
 
 **Tests**: unit (mock Supabase channel)
 **Gate**: quick
@@ -216,9 +216,9 @@ T6 ──┬→ T7 [P]
 - Skill: supabase
 
 **Done when**:
-- [ ] Seed executa sem erro
-- [ ] Re-execução é idempotente (upsert ou skip)
-- [ ] README documenta comando de seed
+- [x] Seed executa sem erro
+- [x] Re-execução é idempotente (upsert ou skip)
+- [x] README documenta comando de seed
 
 **Tests**: none
 **Gate**: seed run

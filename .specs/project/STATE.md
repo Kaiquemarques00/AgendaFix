@@ -1,7 +1,7 @@
 # State
 
 **Last Updated:** 2026-06-01
-**Current Work:** Decisões de projeto confirmadas — pronto para implementação (infra-base)
+**Current Work:** infra-base concluída — próxima feature: ordem-servico ou painel-assistencia
 
 ---
 
@@ -99,7 +99,10 @@ _Nenhuma lição registrada ainda — projeto greenfield._
 - [ ] Criar projetos Vercel (prod + staging) e conectar ao repo
 - [ ] Registrar domínio principal (quando definido)
 - [ ] Registrar domínio de staging na Vercel (quando definido)
-- [ ] Implementar infra-base T1 (bootstrap Next.js)
+- [x] Implementar infra-base Phase 1 (T1–T3: Next.js, shadcn, Supabase clients)
+- [x] Implementar infra-base Phase 2 (T4–T6: schema, RLS, auth)
+- [x] Aplicar migrations no Supabase Cloud (`supabase link` + `db push`)
+- [x] Implementar infra-base Phase 3 (T7–T8: Realtime + seed)
 
 ---
 
