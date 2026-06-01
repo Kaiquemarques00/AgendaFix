@@ -1,7 +1,7 @@
 # Gestão de Ordens de Serviço — Tasks
 
 **Design**: `.specs/features/ordem-servico/design.md`
-**Status**: In Progress (Phase 1 complete)
+**Status**: In Progress (Phase 2 complete)
 
 ---
 
@@ -79,10 +79,10 @@ T5 ──┬→ T6 [P]
 **Requirement**: OS-01, OS-02, OS-03
 
 **Done when**:
-- [ ] Ordem criada com status `received` e `public_token`
-- [ ] Duplicata de `order_number` rejeitada
-- [ ] Histórico inicial registrado
-- [ ] RLS impede criação em workshop alheia
+- [x] Ordem criada com status `received` e `public_token`
+- [x] Duplicata de `order_number` rejeitada
+- [x] Histórico inicial registrado
+- [x] RLS impede criação em workshop alheia
 
 **Tests**: integration
 **Gate**: full
@@ -100,8 +100,8 @@ T5 ──┬→ T6 [P]
 **Requirement**: OS-04, OS-05
 
 **Done when**:
-- [ ] Transição válida atualiza ordem e histórico
-- [ ] Transição inválida retorna erro claro
+- [x] Transição válida atualiza ordem e histórico
+- [x] Transição inválida retorna erro claro
 - [ ] Realtime propaga mudança (verificar manualmente)
 
 **Tests**: integration
@@ -120,9 +120,9 @@ T5 ──┬→ T6 [P]
 **Requirement**: OS-07
 
 **Done when**:
-- [ ] Nota persistida com timestamp
-- [ ] Validação de tamanho (500 chars)
-- [ ] Nota vinculada à ordem correta via RLS
+- [x] Nota persistida com timestamp
+- [x] Validação de tamanho (500 chars)
+- [x] Nota vinculada à ordem correta via RLS
 
 **Tests**: integration
 **Gate**: full

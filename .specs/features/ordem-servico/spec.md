@@ -156,11 +156,12 @@ Recebido → Em análise → Em reparo → Aguardando peça → Pronto para reti
 
 | Requirement ID | Story | Phase | Status |
 | -------------- | ----- | ----- | ------ |
-| OS-01 | P1: Cadastro | T2 | In Progress |
-| OS-02 | P1: Cadastro | T3 | Pending |
-| OS-03 | P1: Cadastro | T3 | Pending |
-| OS-04 | P1: Atualização Status | T1, T4 | In Progress |
-| OS-05 | P1: Atualização Status | T4 | Pending |
+| OS-01 | P1: Cadastro | T3 | Done |
+| OS-02 | P1: Cadastro | T3 | Done |
+| OS-03 | P1: Cadastro | T3 | Done |
+| OS-04 | P1: Atualização Status | T1, T4 | Done |
+| OS-05 | P1: Atualização Status | T4 | Done |
+| OS-07 | P1: Observações | T5 | Done |
 | OS-06 | P1: Histórico | Design | Pending |
 | OS-07 | P1: Observações | Design | Pending |
 | OS-08 | P1: Link Público | Design | Pending |
