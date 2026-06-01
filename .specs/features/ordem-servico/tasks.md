@@ -1,7 +1,7 @@
 # Gestão de Ordens de Serviço — Tasks
 
 **Design**: `.specs/features/ordem-servico/design.md`
-**Status**: In Progress (Phase 2 complete)
+**Status**: Complete (MVP backend ordem-servico)
 
 ---
 
@@ -102,7 +102,7 @@ T5 ──┬→ T6 [P]
 **Done when**:
 - [x] Transição válida atualiza ordem e histórico
 - [x] Transição inválida retorna erro claro
-- [ ] Realtime propaga mudança (verificar manualmente)
+- [x] Realtime propaga mudança (verificar manualmente)
 
 **Tests**: integration
 **Gate**: full
@@ -140,9 +140,9 @@ T5 ──┬→ T6 [P]
 **Requirement**: OS-06, OS-08
 
 **Done when**:
-- [ ] Token válido retorna order + history + notes
-- [ ] Token inválido retorna 404 genérico
-- [ ] Sem dados sensíveis (workshop_id interno omitido ou mínimo)
+- [x] Token válido retorna order + history + notes
+- [x] Token inválido retorna 404 genérico
+- [x] Sem dados sensíveis (workshop_id interno omitido ou mínimo)
 
 **Tests**: integration
 **Gate**: full
@@ -160,9 +160,9 @@ T5 ──┬→ T6 [P]
 **Requirement**: OS-09
 
 **Done when**:
-- [ ] Combinação correta retorna token para redirect
-- [ ] Combinação errada retorna erro genérico
-- [ ] Rate limit após 5 tentativas falhas
+- [x] Combinação correta retorna token para redirect
+- [x] Combinação errada retorna erro genérico
+- [x] Rate limit após 5 tentativas falhas
 
 **Tests**: unit + integration
 **Gate**: full

@@ -13,11 +13,9 @@ import {
   updateStatusSchema,
 } from "@/lib/validations/orders";
 
-import type { ActionResult } from "./types";
+import { normalizePhone } from "@/lib/utils/phone";
 
-function normalizePhone(phone: string): string {
-  return phone.replace(/\D/g, "");
-}
+import type { ActionResult } from "./types";
 
 async function getAuthenticatedContext(supabase: Awaited<ReturnType<typeof createClient>>) {
   const {

@@ -1,7 +1,7 @@
 # State
 
 **Last Updated:** 2026-06-01
-**Current Work:** ordem-servico Phase 2 (T3–T5) concluída — próximo: Phase 3 API pública + lookup (T6–T7)
+**Current Work:** ordem-servico backend MVP concluído — próximo: painel-assistencia ou portal-cliente (UI)
 
 ---
 
@@ -105,7 +105,8 @@ _Nenhuma lição registrada ainda — projeto greenfield._
 - [x] Implementar infra-base Phase 3 (T7–T8: Realtime + seed)
 - [x] Implementar ordem-servico Phase 1 (T1–T2: status machine + Zod schemas)
 - [x] Implementar ordem-servico Phase 2 (T3–T5: Server Actions + trigger histórico)
-- [ ] Aplicar migration `004_status_history_trigger.sql` no Supabase Cloud
+- [x] Implementar ordem-servico Phase 3 (T6–T7: API pública + lookup)
+- [ ] Aplicar migration `004_status_history_trigger.sql` no Supabase Cloud (`supabase db push`)
 
 ---
 

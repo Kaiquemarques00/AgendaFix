@@ -161,13 +161,12 @@ Recebido → Em análise → Em reparo → Aguardando peça → Pronto para reti
 | OS-03 | P1: Cadastro | T3 | Done |
 | OS-04 | P1: Atualização Status | T1, T4 | Done |
 | OS-05 | P1: Atualização Status | T4 | Done |
+| OS-06 | P1: Histórico | T6 | Done |
 | OS-07 | P1: Observações | T5 | Done |
-| OS-06 | P1: Histórico | Design | Pending |
-| OS-07 | P1: Observações | Design | Pending |
-| OS-08 | P1: Link Público | Design | Pending |
-| OS-09 | P2: Consulta OS | - | Pending |
+| OS-08 | P1: Link Público | T6 | Done |
+| OS-09 | P2: Consulta OS | T7 | Done |
 
-**Coverage:** 9 total, 0 mapped to tasks, 9 unmapped ⚠️
+**Coverage:** 9 total, 9 mapped, 0 unmapped ✅
 
 ---
 
