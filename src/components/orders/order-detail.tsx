@@ -1,9 +1,13 @@
 import Link from "next/link";
 
+import { CopyLinkButton } from "@/components/orders/copy-link-button";
+import { NoteForm } from "@/components/orders/note-form";
 import {
+  formatHistoryDateTime,
   formatOrderDate,
   formatOrderDevice,
 } from "@/components/orders/order-list";
+import { StatusActions } from "@/components/orders/status-actions";
 import { getStatusLabel } from "@/lib/domain/status-machine";
 import { STATUS_COLORS } from "@/lib/design/status-colors";
 import type { OrderDetailResult } from "@/lib/actions/orders";
@@ -21,18 +25,8 @@ export function formatHistoryEntry(entry: StatusHistory) {
   return `${getStatusLabel(entry.from_status)} → ${getStatusLabel(entry.to_status)}`;
 }
 
-export function formatHistoryDateTime(isoDate: string) {
-  return new Intl.DateTimeFormat("pt-BR", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(new Date(isoDate));
-}
-
 export function OrderDetail({ data }: OrderDetailProps) {
-  const { order, history } = data;
+  const { order, history, notes } = data;
 
   return (
     <div className="space-y-6">
@@ -81,11 +75,27 @@ export function OrderDetail({ data }: OrderDetailProps) {
           <DetailRow label="Número da OS" value={order.order_number} />
           <DetailRow label="Entrada" value={formatOrderDate(order.created_at)} />
           <DetailRow label="Última atualização" value={formatOrderDate(order.updated_at)} />
-          <DetailRow
-            label="Link de acompanhamento"
-            value={`/acompanhar/${order.public_token}`}
-          />
         </dl>
+        <div className="mt-6 border-t border-[#E2E8F0] pt-6">
+          <h3 className="mb-3 text-sm font-medium text-[#64748B]">
+            Link de acompanhamento
+          </h3>
+          <CopyLinkButton publicToken={order.public_token} />
+        </div>
+      </section>
+
+      <section className="rounded-xl border border-[#E2E8F0] bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
+        <h2 className="mb-4 text-lg font-semibold text-[#0F172A]">
+          Atualizar status
+        </h2>
+        <StatusActions orderId={order.id} currentStatus={order.status} />
+      </section>
+
+      <section className="rounded-xl border border-[#E2E8F0] bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
+        <h2 className="mb-4 text-lg font-semibold text-[#0F172A]">
+          Observações
+        </h2>
+        <NoteForm orderId={order.id} notes={notes} />
       </section>
 
       <section className="rounded-xl border border-[#E2E8F0] bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.08)]">

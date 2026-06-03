@@ -1,7 +1,7 @@
 # Painel da Assistência — Tasks
 
 **Design**: `.specs/features/painel-assistencia/design.md`
-**Status**: In Progress (Phase 2 complete)
+**Status**: Complete (MVP painel-assistencia)
 
 **Depends on**: infra-base (auth, layout) ✅, ordem-servico (actions) ✅
 
@@ -137,9 +137,9 @@ T5 → T6 → T7
 **Requirement**: PAINEL-04
 
 **Done when**:
-- [ ] Apenas transições válidas visíveis
-- [ ] Loading state durante mutation
-- [ ] Histórico atualiza após sucesso
+- [x] Apenas transições válidas visíveis
+- [x] Loading state durante mutation
+- [x] Histórico atualiza após sucesso
 
 **Tests**: unit
 **Gate**: quick
@@ -156,10 +156,10 @@ T5 → T6 → T7
 **Requirement**: PAINEL-05, PAINEL-06
 
 **Done when**:
-- [ ] Nota adicionada atualiza lista
-- [ ] Contador de caracteres (500 max)
-- [ ] Copiar link exibe toast de confirmação
-- [ ] Fallback se clipboard API indisponível
+- [x] Nota adicionada atualiza lista
+- [x] Contador de caracteres (500 max)
+- [x] Copiar link exibe toast de confirmação
+- [x] Fallback se clipboard API indisponível
 
 **Tests**: unit
 **Gate**: quick

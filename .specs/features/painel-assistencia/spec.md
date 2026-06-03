@@ -155,9 +155,9 @@ Técnicos e atendentes precisam de uma interface operacional rápida para regist
 | PAINEL-01 | P1: Login | Phase 1 (T1) | Done |
 | PAINEL-02 | P1: Cadastro | Phase 2 (T4) | Done |
 | PAINEL-03 | P1: Listagem | Phase 1 (T2–T3) | Done |
-| PAINEL-04 | P1: Status | Phase 2 (T5), Phase 3 (T6) | Partial |
-| PAINEL-05 | P1: Observações | Design | Pending |
-| PAINEL-06 | P1: Copiar Link | Design | Pending |
+| PAINEL-04 | P1: Status | Phase 2–3 (T5–T6) | Done |
+| PAINEL-05 | P1: Observações | Phase 3 (T7) | Done |
+| PAINEL-06 | P1: Copiar Link | Phase 3 (T7) | Done |
 | PAINEL-07 | P2: Dashboard | - | Pending |
 
 **Coverage:** 7 total, 0 mapped to tasks, 7 unmapped ⚠️

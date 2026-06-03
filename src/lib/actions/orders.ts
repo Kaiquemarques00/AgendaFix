@@ -32,6 +32,7 @@ export type OrdersResult = {
 export type OrderDetailResult = {
   order: ServiceOrder;
   history: StatusHistory[];
+  notes: OrderNote[];
 };
 
 async function getAuthenticatedContext(supabase: Awaited<ReturnType<typeof createClient>>) {
@@ -319,8 +320,19 @@ export async function getOrderById(
     return null;
   }
 
+  const { data: notes, error: notesError } = await supabase
+    .from("order_notes")
+    .select("*")
+    .eq("service_order_id", orderId)
+    .order("created_at", { ascending: true });
+
+  if (notesError) {
+    return null;
+  }
+
   return {
     order: order as ServiceOrder,
     history: (history ?? []) as StatusHistory[],
+    notes: (notes ?? []) as OrderNote[],
   };
 }
