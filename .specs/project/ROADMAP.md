@@ -1,7 +1,7 @@
 # Roadmap
 
 **Current Milestone:** MVP — Acompanhamento de Ordens de Serviço
-**Status:** In Progress (backend concluído; UI painel + portal pendentes)
+**Status:** In Progress (painel ✅; portal-cliente pendente)
 
 ---
 
@@ -38,7 +38,7 @@ _Nota: telas do painel que consomem as actions e rota `/acompanhar` ficam nas fe
 
 ---
 
-**Painel da Assistência** — PLANNED
+**Painel da Assistência** — ✅ DONE (MVP)
 
 - Login da assistência
 - Formulário de cadastro de ordem de serviço
@@ -47,7 +47,9 @@ _Nota: telas do painel que consomem as actions e rota `/acompanhar` ficam nas fe
 - Campo de observações técnicas
 - Copiar link de acompanhamento para o cliente
 
-Spec: `.specs/features/painel-assistencia/spec.md`
+Spec: `.specs/features/painel-assistencia/spec.md` · Tasks: `painel-assistencia/tasks.md`
+
+_Verificação: 89 testes + HTTP dev (2026-06-03). Link `/acompanhar` depende portal-cliente._
 
 ---
 

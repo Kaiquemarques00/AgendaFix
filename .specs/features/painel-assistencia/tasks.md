@@ -3,6 +3,8 @@
 **Design**: `.specs/features/painel-assistencia/design.md`
 **Status**: Complete (MVP painel-assistencia)
 
+**Verified**: 2026-06-03 — ver seção Verification Log abaixo
+
 **Depends on**: infra-base (auth, layout) ✅, ordem-servico (actions) ✅
 
 ---
@@ -220,3 +222,19 @@ Phase 3:
 | ---- | --------- | ------ |
 | T1, T3, T5 | none/e2e manual | ✅ OK (UI pages) |
 | T2, T4, T6, T7 | unit | ✅ OK |
+
+---
+
+## Verification Log
+
+| Data | O quê | Resultado |
+| ---- | ----- | --------- |
+| 2026-06-03 | `npm test` (89 testes) | ✅ |
+| 2026-06-03 | `npm run build` | ✅ |
+| 2026-06-03 | `GET /dashboard` sem auth → redirect `/login` | ✅ 307 |
+| 2026-06-03 | Seed user: `/dashboard`, `/dashboard/nova`, detalhe ordem seed | ✅ 200 |
+| 2026-06-03 | Ordem inexistente `/dashboard/ordens/{uuid}` | ✅ 404 |
+| 2026-06-03 | `GET /api/public/orders/{token}` (seed) | ✅ 200 |
+| 2026-06-03 | `GET /acompanhar/{token}` | ⏳ 404 — aguarda `portal-cliente` |
+| 2026-06-03 | Layout responsivo (classes `md:`/`lg:`) | ✅ code review |
+| 2026-06-03 | Tablet 768px sem scroll horizontal | ⏳ medição visual pendente |

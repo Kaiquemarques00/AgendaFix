@@ -1,7 +1,7 @@
 # Painel da Assistência — Design
 
 **Spec**: `.specs/features/painel-assistencia/spec.md`
-**Status**: Draft
+**Status**: Complete (MVP)
 
 ---
 

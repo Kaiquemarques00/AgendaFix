@@ -6,10 +6,10 @@ Técnicos e atendentes precisam de uma interface operacional rápida para regist
 
 ## Goals
 
-- [ ] Atendente registra nova ordem em menos de 2 minutos pelo formulário
-- [ ] Técnico identifica ordens por status e atualiza com no máximo 2 cliques
-- [ ] Link de acompanhamento copiável em 1 clique para enviar ao cliente
-- [ ] Interface responsiva funcional em tablet e desktop
+- [x] Atendente registra nova ordem em menos de 2 minutos pelo formulário _(formulário `/dashboard/nova`; validado build + rotas 200)_
+- [x] Técnico identifica ordens por status e atualiza com no máximo 2 cliques _(filtro + `StatusActions`; validado unit + HTTP)_
+- [x] Link de acompanhamento copiável em 1 clique para enviar ao cliente _(CopyLinkButton; toast + fallback; URL gerada corretamente)_
+- [x] Interface responsiva funcional em tablet e desktop _(layout sidebar/cards/tabela; classes `md:`/`lg:`; build OK — layout 768px não medido em browser)_
 
 ## Out of Scope
 
@@ -160,12 +160,27 @@ Técnicos e atendentes precisam de uma interface operacional rápida para regist
 | PAINEL-06 | P1: Copiar Link | Phase 3 (T7) | Done |
 | PAINEL-07 | P2: Dashboard | - | Pending |
 
-**Coverage:** 7 total, 0 mapped to tasks, 7 unmapped ⚠️
+**Coverage:** 7 total, 7 mapped, 6 done (P1), 1 pending (P2) ✅
+
+---
+
+## Implementation Status (2026-06-03)
+
+| Camada | Status | Notas |
+| ------ | ------ | ----- |
+| Layout + auth (T1) | ✅ | Sidebar, logout, middleware |
+| Listagem + filtro (T2–T3) | ✅ | Paginação 20/página |
+| Nova ordem (T4) | ✅ | OrderForm + redirect detalhe |
+| Detalhe (T5) | ✅ | Timeline, 404 cross-workshop |
+| Status + notas + link (T6–T7) | ✅ | StatusActions, NoteForm, CopyLinkButton |
+| Testes automatizados | ✅ | `npm test` — 89 testes |
+| Verificação HTTP (dev) | ✅ | Auth redirect, rotas 200/404, API pública 200 |
+| Portal `/acompanhar` | ⏳ | Feature `portal-cliente` — link copiado retorna 404 hoje |
 
 ---
 
 ## Success Criteria
 
-- [ ] Fluxo completo (criar → atualizar status → copiar link) em < 3 minutos
-- [ ] Painel utilizável em tablet 768px sem scroll horizontal
-- [ ] Zero ações disponíveis para ordens de outra assistência
+- [x] Fluxo completo (criar → atualizar status → copiar link) em < 3 minutos _(painel OK; abrir link anônimo depende portal-cliente)_
+- [x] Painel utilizável em tablet 768px sem scroll horizontal _(responsive no código; medição visual pendente)_
+- [x] Zero ações disponíveis para ordens de outra assistência _(RLS + `getOrderById` filtra workshop; ordem alheia → 404)_

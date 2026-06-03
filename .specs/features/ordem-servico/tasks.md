@@ -234,3 +234,4 @@ Phase 3:
 | 2026-06-01 | `GET /api/public/orders/{token}` (curl, seed OS-2026-0001) | ✅ JSON sem `workshop_id` |
 | 2026-06-01 | Realtime após mudança de status (manual) | ✅ |
 | 2026-06-01 | Transição de status + histórico (manual) | ✅ |
+| 2026-06-03 | `npm test` (89 testes, incl. painel) | ✅ |

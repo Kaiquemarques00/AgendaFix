@@ -1,7 +1,7 @@
 # State
 
-**Last Updated:** 2026-06-01
-**Current Work:** ordem-servico backend validado (testes auto + manual) — próximo: painel-assistencia ou portal-cliente (UI)
+**Last Updated:** 2026-06-03
+**Current Work:** painel-assistencia MVP concluído — próximo: portal-cliente (`/acompanhar`)
 
 ---
 
@@ -73,6 +73,11 @@ _Nenhum blocker ativo no momento._
 - Realtime e transição de status validados manualmente em dev.
 - Lookup e rate limit cobertos por testes automatizados; UI de `/consultar` ainda não existe.
 
+### LL-002: Redirect loop no dashboard (2026-06-03)
+
+- `getOrders` retornava `null` sem workshop → `redirect("/login")` enquanto middleware redirecionava usuário autenticado de volta ao dashboard.
+- Correção: `needsWorkshopSetup` em vez de redirect; `.maybeSingle()` na query de membership.
+
 ---
 
 ## Quick Tasks Completed
@@ -112,6 +117,9 @@ _Nenhum blocker ativo no momento._
 - [x] Implementar ordem-servico Phase 3 (T6–T7: API pública + lookup)
 - [x] Validar ordem-servico manualmente (API pública, Realtime, fluxo de status)
 - [x] Aplicar migrations no Supabase Cloud (incl. `004_status_history_trigger.sql`)
+- [x] Implementar painel-assistencia Phase 1–3 (T1–T7)
+- [x] Validar painel-assistencia (89 testes + HTTP dev 2026-06-03)
+- [ ] Implementar portal-cliente (rota `/acompanhar`, consulta OS)
 
 ---
 
