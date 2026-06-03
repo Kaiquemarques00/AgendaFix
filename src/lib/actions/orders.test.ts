@@ -63,13 +63,15 @@ function mockNoAuth() {
 }
 
 function mockWorkshopMembership() {
+  const membershipResult = {
+    data: { workshop_id: WORKSHOP_ID },
+    error: null,
+  };
   return {
     select: vi.fn().mockReturnThis(),
     eq: vi.fn().mockReturnThis(),
-    single: vi.fn().mockResolvedValue({
-      data: { workshop_id: WORKSHOP_ID },
-      error: null,
-    }),
+    single: vi.fn().mockResolvedValue(membershipResult),
+    maybeSingle: vi.fn().mockResolvedValue(membershipResult),
   };
 }
 

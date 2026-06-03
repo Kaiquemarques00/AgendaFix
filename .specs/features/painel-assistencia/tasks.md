@@ -1,7 +1,7 @@
 # Painel da Assistência — Tasks
 
 **Design**: `.specs/features/painel-assistencia/design.md`
-**Status**: Draft
+**Status**: In Progress (Phase 2 complete)
 
 **Depends on**: infra-base (auth, layout) ✅, ordem-servico (actions) ✅
 
@@ -40,9 +40,9 @@ T5 → T6 → T7
 **Requirement**: PAINEL-01
 
 **Done when**:
-- [ ] Layout renderiza em rotas `/dashboard/*`
-- [ ] Sidebar com links: Ordens, Nova ordem
-- [ ] Logout funciona
+- [x] Layout renderiza em rotas `/dashboard/*`
+- [x] Sidebar com links: Ordens, Nova ordem
+- [x] Logout funciona
 
 **Tests**: none
 **Gate**: build + manual
@@ -59,10 +59,10 @@ T5 → T6 → T7
 **Requirement**: PAINEL-03
 
 **Done when**:
-- [ ] Lista exibe OS, cliente, equipamento, status, data
-- [ ] Badges usam STATUS_COLORS
-- [ ] Link para detalhe funciona
-- [ ] Empty state quando vazio
+- [x] Lista exibe OS, cliente, equipamento, status, data
+- [x] Badges usam STATUS_COLORS
+- [x] Link para detalhe funciona
+- [x] Empty state quando vazio
 
 **Tests**: unit
 **Gate**: quick
@@ -79,9 +79,9 @@ T5 → T6 → T7
 **Requirement**: PAINEL-03
 
 **Done when**:
-- [ ] Filtro por status funciona
-- [ ] Ordenação por updated_at desc
-- [ ] Paginação básica (20/página) se >20 ordens
+- [x] Filtro por status funciona
+- [x] Ordenação por updated_at desc
+- [x] Paginação básica (20/página) se >20 ordens
 
 **Tests**: e2e (manual)
 **Gate**: manual
@@ -98,10 +98,10 @@ T5 → T6 → T7
 **Requirement**: PAINEL-02
 
 **Done when**:
-- [ ] Todos campos do MVP presentes
-- [ ] Validação inline em pt-BR
-- [ ] Sucesso redireciona para detalhe ou listagem
-- [ ] Erro duplicata exibido
+- [x] Todos campos do MVP presentes
+- [x] Validação inline em pt-BR
+- [x] Sucesso redireciona para detalhe ou listagem
+- [x] Erro duplicata exibido
 
 **Tests**: unit (form validation)
 **Gate**: quick
@@ -118,9 +118,9 @@ T5 → T6 → T7
 **Requirement**: PAINEL-04
 
 **Done when**:
-- [ ] Exibe todos campos da ordem
-- [ ] Histórico em timeline vertical
-- [ ] 404 se ordem não existe ou não pertence à workshop
+- [x] Exibe todos campos da ordem
+- [x] Histórico em timeline vertical
+- [x] 404 se ordem não existe ou não pertence à workshop
 
 **Tests**: e2e (manual)
 **Gate**: manual

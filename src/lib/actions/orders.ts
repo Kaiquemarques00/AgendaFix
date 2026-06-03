@@ -6,7 +6,7 @@ import {
   getStatusLabel,
 } from "@/lib/domain/status-machine";
 import { createClient } from "@/lib/supabase/server";
-import type { OrderNote, ServiceOrder, ServiceOrderStatus } from "@/types/database";
+import type { OrderNote, ServiceOrder, ServiceOrderStatus, StatusHistory } from "@/types/database";
 import {
   addNoteSchema,
   createOrderSchema,
@@ -16,6 +16,23 @@ import {
 import { normalizePhone } from "@/lib/utils/phone";
 
 import type { ActionResult } from "./types";
+
+export type OrderFilters = {
+  status?: ServiceOrderStatus;
+  page?: number;
+  pageSize?: number;
+};
+
+export type OrdersResult = {
+  orders: ServiceOrder[];
+  total: number;
+  needsWorkshopSetup?: boolean;
+};
+
+export type OrderDetailResult = {
+  order: ServiceOrder;
+  history: StatusHistory[];
+};
 
 async function getAuthenticatedContext(supabase: Awaited<ReturnType<typeof createClient>>) {
   const {
@@ -31,7 +48,7 @@ async function getAuthenticatedContext(supabase: Awaited<ReturnType<typeof creat
     .from("workshop_users")
     .select("workshop_id")
     .eq("id", user.id)
-    .single();
+    .maybeSingle();
 
   if (membershipError || !membership?.workshop_id) {
     return null;
@@ -220,4 +237,90 @@ export async function addOrderNote(
   }
 
   return { success: true, data: note as OrderNote };
+}
+
+export async function getOrders(
+  filters?: OrderFilters
+): Promise<OrdersResult | null> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return null;
+  }
+
+  const { data: membership, error: membershipError } = await supabase
+    .from("workshop_users")
+    .select("workshop_id")
+    .eq("id", user.id)
+    .maybeSingle();
+
+  if (membershipError || !membership?.workshop_id) {
+    return { orders: [], total: 0, needsWorkshopSetup: true };
+  }
+
+  const page = Math.max(1, filters?.page ?? 1);
+  const pageSize = filters?.pageSize ?? 20;
+  const from = (page - 1) * pageSize;
+  const to = from + pageSize - 1;
+
+  let query = supabase
+    .from("service_orders")
+    .select("*", { count: "exact" })
+    .eq("workshop_id", membership.workshop_id)
+    .order("updated_at", { ascending: false })
+    .range(from, to);
+
+  if (filters?.status) {
+    query = query.eq("status", filters.status);
+  }
+
+  const { data, count, error } = await query;
+
+  if (error) {
+    return { orders: [], total: 0 };
+  }
+
+  return {
+    orders: (data ?? []) as ServiceOrder[],
+    total: count ?? 0,
+  };
+}
+
+export async function getOrderById(
+  orderId: string
+): Promise<OrderDetailResult | null> {
+  const supabase = await createClient();
+  const auth = await getAuthenticatedContext(supabase);
+  if (!auth) {
+    return null;
+  }
+
+  const { data: order, error: orderError } = await supabase
+    .from("service_orders")
+    .select("*")
+    .eq("id", orderId)
+    .eq("workshop_id", auth.workshopId)
+    .maybeSingle();
+
+  if (orderError || !order) {
+    return null;
+  }
+
+  const { data: history, error: historyError } = await supabase
+    .from("status_history")
+    .select("*")
+    .eq("service_order_id", orderId)
+    .order("created_at", { ascending: true });
+
+  if (historyError) {
+    return null;
+  }
+
+  return {
+    order: order as ServiceOrder,
+    history: (history ?? []) as StatusHistory[],
+  };
 }
