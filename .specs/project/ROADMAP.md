@@ -1,7 +1,7 @@
 # Roadmap
 
 **Current Milestone:** MVP — Acompanhamento de Ordens de Serviço
-**Status:** In Progress (painel ✅; portal-cliente pendente)
+**Status:** MVP completo (infra ✅ · ordem-servico ✅ · painel ✅ · portal-cliente ✅)
 
 ---
 
@@ -53,15 +53,18 @@ _Verificação: 89 testes + HTTP dev (2026-06-03). Link `/acompanhar` depende po
 
 ---
 
-**Portal do Cliente** — PLANNED
+**Portal do Cliente** — ✅ DONE
 
-- Consulta por número da ordem de serviço
-- Acesso via link compartilhado (token único)
-- Visualização do status atual com indicador visual
+- Consulta por número da ordem de serviço (`/consultar`)
+- Acesso via link compartilhado (`/acompanhar/{token}`)
+- Visualização do status atual com stepper
 - Linha do tempo com histórico de progresso
 - Exibição de observações da assistência
+- Atualização em tempo real (Supabase Realtime)
 
-Spec: `.specs/features/portal-cliente/spec.md`
+Spec: `.specs/features/portal-cliente/spec.md` · Tasks: `portal-cliente/tasks.md`
+
+_Verificação: 119 testes + manual e2e/Lighthouse (2026-06-05)._
 
 ---
 

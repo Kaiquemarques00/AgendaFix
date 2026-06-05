@@ -1,7 +1,8 @@
 # Portal do Cliente — Tasks
 
 **Design**: `.specs/features/portal-cliente/design.md`
-**Status**: Draft
+**Status**: Complete
+**Verified**: 2026-06-05 — ver seção Verification Log abaixo
 
 **Depends on**: infra-base (realtime) ✅, ordem-servico (public API, lookup) ✅
 
@@ -39,9 +40,9 @@ ordem-servico T7 → T6
 **Requirement**: PORTAL-02
 
 **Done when**:
-- [ ] 6 steps renderizam corretamente
-- [ ] Status atual destacado; anteriores com check
-- [ ] Responsivo: horizontal desktop, vertical mobile
+- [x] 6 steps renderizam corretamente
+- [x] Status atual destacado; anteriores com check
+- [x] Responsivo: horizontal desktop, vertical mobile
 
 **Tests**: unit
 **Gate**: quick
@@ -58,10 +59,10 @@ ordem-servico T7 → T6
 **Requirement**: PORTAL-03
 
 **Done when**:
-- [ ] Eventos ordenados cronologicamente
-- [ ] Data formatada dd/MM/yyyy HH:mm
-- [ ] Evento atual destacado
-- [ ] Funciona com 1 evento
+- [x] Eventos ordenados cronologicamente
+- [x] Data formatada dd/MM/yyyy HH:mm
+- [x] Evento atual destacado
+- [x] Funciona com 1 evento
 
 **Tests**: unit
 **Gate**: quick
@@ -78,9 +79,9 @@ ordem-servico T7 → T6
 **Requirement**: PORTAL-01, PORTAL-04
 
 **Done when**:
-- [ ] Notas em ordem cronológica
-- [ ] Empty state "Nenhuma mensagem ainda"
-- [ ] NotFound amigável com ilustração ou ícone
+- [x] Notas em ordem cronológica
+- [x] Empty state "Nenhuma mensagem da assistência ainda"
+- [x] NotFound amigável com ilustração ou ícone
 
 **Tests**: unit
 **Gate**: quick
@@ -97,10 +98,10 @@ ordem-servico T7 → T6
 **Requirement**: PORTAL-05
 
 **Done when**:
-- [ ] Renderiza dados iniciais do SSR
-- [ ] Atualiza status via Realtime sem reload
-- [ ] Novas notas aparecem automaticamente
-- [ ] Banner fallback se Realtime falhar persistentemente
+- [x] Renderiza dados iniciais do SSR
+- [x] Atualiza status via Realtime sem reload
+- [x] Novas notas aparecem automaticamente
+- [x] Banner fallback se Realtime falhar persistentemente
 
 **Tests**: unit (mock subscription)
 **Gate**: quick
@@ -117,11 +118,11 @@ ordem-servico T7 → T6
 **Requirement**: PORTAL-01, PORTAL-02
 
 **Done when**:
-- [ ] SSR carrega ordem via public API
-- [ ] Token inválido renderiza NotFoundOrder
-- [ ] Meta title com número da OS
-- [ ] robots noindex configurado
-- [ ] Mobile-friendly (375px)
+- [x] SSR carrega ordem via public API
+- [x] Token inválido renderiza NotFoundOrder
+- [x] Meta title com número da OS
+- [x] robots noindex configurado
+- [x] Mobile-friendly (375px)
 
 **Tests**: e2e (manual)
 **Gate**: manual + lighthouse mobile
@@ -138,11 +139,11 @@ ordem-servico T7 → T6
 **Requirement**: PORTAL-06
 
 **Done when**:
-- [ ] Formulário com 2 campos
-- [ ] Submit chama lookupOrder
-- [ ] Sucesso redireciona para /acompanhar/{token}
-- [ ] Erro exibe mensagem genérica
-- [ ] Loading state no botão
+- [x] Formulário com 2 campos
+- [x] Submit chama lookupOrder
+- [x] Sucesso redireciona para /acompanhar/{token}
+- [x] Erro exibe mensagem genérica
+- [x] Loading state no botão
 
 **Tests**: unit + e2e (manual)
 **Gate**: manual
@@ -200,3 +201,18 @@ Phase 3 (can start after ordem-servico T7):
 | ---- | --------- | ------ |
 | T1-T4 | unit | ✅ OK |
 | T5-T6 | e2e manual | ✅ OK |
+
+---
+
+## Verification Log
+
+| Data | O quê | Resultado |
+| ---- | ----- | --------- |
+| 2026-06-05 | `npm test` (119 testes, incl. portal) | ✅ |
+| 2026-06-05 | `npm run lint` | ✅ |
+| 2026-06-05 | `npm run build` (rotas `/acompanhar`, `/consultar`) | ✅ |
+| 2026-06-05 | T5 manual: link válido, token inválido, layout 375px, meta/robots | ✅ (responsável) |
+| 2026-06-05 | T5 manual: Lighthouse mobile performance | ✅ (responsável) |
+| 2026-06-05 | T6 manual: consulta OS+telefone, redirect, erro genérico, loading | ✅ (responsável) |
+| 2026-06-05 | Realtime: status e notas sem reload (painel → portal) | ✅ (responsável) |
+| — | Teste com usuário não técnico (spec Success Criteria) | ⏳ Pendente |

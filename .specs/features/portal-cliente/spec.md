@@ -6,10 +6,10 @@ Clientes entregam equipamentos e ficam ansiosos sem saber o andamento. O portal 
 
 ## Goals
 
-- [ ] Cliente acessa status da ordem em menos de 30 segundos via link ou consulta
-- [ ] Interface mobile-first clara e tranquilizadora
-- [ ] Atualizações de status refletidas automaticamente sem recarregar página
-- [ ] Linha do tempo completa visível para entender progresso
+- [x] Cliente acessa status da ordem em menos de 30 segundos via link ou consulta
+- [x] Interface mobile-first clara e tranquilizadora
+- [x] Atualizações de status refletidas automaticamente sem recarregar página
+- [x] Linha do tempo completa visível para entender progresso
 
 ## Out of Scope
 
@@ -123,19 +123,26 @@ Clientes entregam equipamentos e ficam ansiosos sem saber o andamento. O portal 
 
 | Requirement ID | Story | Phase | Status |
 | -------------- | ----- | ----- | ------ |
-| PORTAL-01 | P1: Link | Design | Pending |
-| PORTAL-02 | P1: Status | Design | Pending |
-| PORTAL-03 | P1: Timeline | Design | Pending |
-| PORTAL-04 | P1: Mensagens | Design | Pending |
-| PORTAL-05 | P1: Realtime | Design | Pending |
-| PORTAL-06 | P2: Consulta | Design | Pending |
+| PORTAL-01 | P1: Link | T3, T5 | ✅ Verified |
+| PORTAL-02 | P1: Status | T1, T5 | ✅ Verified |
+| PORTAL-03 | P1: Timeline | T2 | ✅ Verified |
+| PORTAL-04 | P1: Mensagens | T3 | ✅ Verified |
+| PORTAL-05 | P1: Realtime | T4 | ✅ Verified |
+| PORTAL-06 | P2: Consulta | T6 | ✅ Verified |
 
-**Coverage:** 6 total, 0 mapped to tasks, 6 unmapped ⚠️
+**Coverage:** 6 total, 6 verified ✅
 
 ---
 
 ## Success Criteria
 
-- [ ] Lighthouse mobile performance > 80 na página de acompanhamento
-- [ ] Atualização Realtime percebida em < 3 segundos
-- [ ] Cliente não técnico entende status sem instruções (teste com 1 usuário)
+- [x] Lighthouse mobile performance > 80 na página de acompanhamento _(validado manualmente 2026-06-05)_
+- [x] Atualização Realtime percebida em < 3 segundos _(validado manualmente 2026-06-05)_
+- [ ] Cliente não técnico entende status sem instruções (teste com 1 usuário) — único item pendente
+
+## Known Deviations
+
+| Item | Spec | Implementação | Motivo |
+| ---- | ---- | --------------- | ------ |
+| Mensagem de lookup inválido | "Ordem não encontrada. Verifique os dados." | "Não foi possível localizar a ordem. Verifique os dados informados." | Mensagem genérica definida em `ordem-servico` T7 (`lookupOrder`); evita enumeração |
+| Footer WhatsApp/telefone assistência | design.md MVP | Não implementado | API pública não expõe dados da workshop; fora do escopo das tasks T1–T6 |

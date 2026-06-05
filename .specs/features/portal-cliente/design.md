@@ -1,7 +1,7 @@
 # Portal do Cliente — Design
 
 **Spec**: `.specs/features/portal-cliente/spec.md`
-**Status**: Draft
+**Status**: Verified (2026-06-05)
 
 ---
 
@@ -122,8 +122,12 @@ const STATUS_DESCRIPTIONS: Record<ServiceOrderStatus, string> = {
 // useOrderSubscription usage in OrderTrackingView
 const { order, history, notes } = useOrderSubscription(token, initialData)
 
+// Realtime: headers HTTP (x-public-token) NÃO funcionam no WebSocket.
+// Fluxo: GET /api/public/orders/{token}/realtime-token → JWT com claim public_token
+// → supabase.realtime.setAuth(jwt) → postgres_changes
+
 // On postgres_changes for service_orders WHERE public_token = token:
-// → refetch or merge updated status
+// → merge updated status
 
 // On postgres_changes for status_history / order_notes:
 // → append new entries

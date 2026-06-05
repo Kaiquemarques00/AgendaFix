@@ -28,6 +28,7 @@ Execute na ordem, no dashboard Supabase → SQL:
 2. `migrations/002_rls_policies.sql`
 3. `migrations/003_enable_realtime.sql`
 4. `migrations/004_status_history_trigger.sql`
+5. `migrations/005_realtime_public_token_jwt.sql`
 
 ## Auth (painel)
 
@@ -50,7 +51,10 @@ VALUES (
 
 Verificação manual: [RLS_MANUAL_TEST.md](./RLS_MANUAL_TEST.md)
 
-Portal anônimo: use `createPublicClient(token)` em `src/lib/supabase/public-client.ts` (header `x-public-token`).
+Portal anônimo:
+- REST/SSR: `createPublicClient(token)` ou `createPublicServerClient(token)` (header `x-public-token`)
+- Realtime: JWT com claim `public_token` via `GET /api/public/orders/{token}/realtime-token` + `realtime.setAuth()` (headers não funcionam no WebSocket)
+- Env: `SUPABASE_JWT_SECRET` (dashboard → Settings → API → JWT Secret)
 
 ## Seed de desenvolvimento
 

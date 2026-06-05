@@ -236,5 +236,6 @@ Phase 3:
 | 2026-06-03 | Ordem inexistente `/dashboard/ordens/{uuid}` | ✅ 404 |
 | 2026-06-03 | `GET /api/public/orders/{token}` (seed) | ✅ 200 |
 | 2026-06-03 | `GET /acompanhar/{token}` | ⏳ 404 — aguarda `portal-cliente` |
+| 2026-06-05 | `GET /acompanhar/{token}` (portal-cliente) | ✅ 200 |
 | 2026-06-03 | Layout responsivo (classes `md:`/`lg:`) | ✅ code review |
 | 2026-06-03 | Tablet 768px sem scroll horizontal | ⏳ medição visual pendente |

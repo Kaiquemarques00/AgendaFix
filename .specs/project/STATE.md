@@ -1,7 +1,7 @@
 # State
 
-**Last Updated:** 2026-06-03
-**Current Work:** painel-assistencia MVP concluído — próximo: portal-cliente (`/acompanhar`)
+**Last Updated:** 2026-06-05
+**Current Work:** MVP Milestone 1 completo — próximo: Milestone 2 (notificações) ou deploy piloto
 
 ---
 
@@ -71,7 +71,13 @@ _Nenhum blocker ativo no momento._
 
 - API pública retorna `order` + `history` + `notes` sem `workshop_id` (curl com token do seed OK).
 - Realtime e transição de status validados manualmente em dev.
-- Lookup e rate limit cobertos por testes automatizados; UI de `/consultar` ainda não existe.
+- Lookup e rate limit cobertos por testes automatizados; UI `/consultar` implementada em portal-cliente (2026-06-05).
+
+### LL-003: Realtime portal não atualizava sem reload (2026-06-05)
+
+- Causa: Supabase Realtime (WebSocket) não repassa `x-public-token`; RLS anon bloqueava eventos.
+- Correção: JWT server-side com claim `public_token` + `realtime.setAuth()` + migration `005_realtime_public_token_jwt.sql`.
+- Requer `SUPABASE_JWT_SECRET` no `.env.local` e `supabase db push`.
 
 ### LL-002: Redirect loop no dashboard (2026-06-03)
 
@@ -119,7 +125,9 @@ _Nenhum blocker ativo no momento._
 - [x] Aplicar migrations no Supabase Cloud (incl. `004_status_history_trigger.sql`)
 - [x] Implementar painel-assistencia Phase 1–3 (T1–T7)
 - [x] Validar painel-assistencia (89 testes + HTTP dev 2026-06-03)
-- [ ] Implementar portal-cliente (rota `/acompanhar`, consulta OS)
+- [x] Implementar portal-cliente (rotas `/acompanhar`, `/consultar`)
+- [x] Validar portal-cliente (119 testes + manual e2e/Lighthouse 2026-06-05)
+- [ ] Teste de usabilidade com 1 cliente não técnico (spec success criteria)
 
 ---
 
